@@ -47,33 +47,29 @@ TEST(MatrixMultiplicationTest, TestMultiplyBigScalars) {
 }
 
 /*
-    2x1 matrix times 1x2 matrix. This tests the sum of the products
+    1x10 matrix times 10x1 matrix. This tests the sum of the products
 */
-
 TEST(MatrixMultiplicationTest, TestSumColRow) {
     
     std::vector<std::vector<int>> A = {
-        {6},
-        {7}
-        
+        {0,1,2,3,4,5,6,7,8,9}
     };
     std::vector<std::vector<int>> B = {
-        {5,4}
+        {0},{1},{2},{3},{4},{5},{6},{7},{8},{9}
     };
     std::vector<std::vector<int>> C(1, std::vector<int>(1, 0));
-    multiplyMatrices(B, A, C, 1, 2, 1);
+    multiplyMatrices(A, B, C, 1, 10, 1);
 
     std::vector<std::vector<int>> expected = {
-        {58}
+        {285}
     };
 
     ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
 }
 
 /*
-    Left and right product by the identity matrix, useful to check correct indexing of the loops
+    Left and right product by the identity matrix. This tests correct indexing of the loops
 */
-
 TEST(MatrixMultiplicationTest, TestMultiplyIdentity) {
     
     std::vector<std::vector<int>> A = {
@@ -96,6 +92,33 @@ TEST(MatrixMultiplicationTest, TestMultiplyIdentity) {
     multiplyMatrices(B, A, C, 3, 3, 3);
     ASSERT_EQ(C, B) << "Matrix multiplication test failed! :(((()";
 }
+
+/*
+    Left and right product by the zero matrix. This tests products by zero
+*/
+TEST(MatrixMultiplicationTest, TestMultiplyZero) {
+    
+    std::vector<std::vector<int>> A = {
+        {0,0,0},
+        {0,0,0},
+        {0,0,0}
+        
+    };
+    std::vector<std::vector<int>> B = {
+        {1,2,3},
+        {4,5,6},
+        {7,8,9}
+    };
+    std::vector<std::vector<int>> C(3, std::vector<int>(3, 0));
+    multiplyMatrices(A, B, C, 3, 3, 3);
+
+
+    ASSERT_EQ(C, B) << "Matrix multiplication test failed! :(((()";
+
+    multiplyMatrices(B, A, C, 3, 3, 3);
+    ASSERT_EQ(C, B) << "Matrix multiplication test failed! :(((()";
+}
+
 
 /*
     20x20 matrix multiplication to test big inputs
