@@ -108,7 +108,7 @@ TEST(MatrixMultiplicationTest, TestMultiplyBig) {
             A[i][j]=(i*10)+j;
         }
     }
-    std::vector<std::vector<int>> B(10, std::vector<int>(20, 0));
+    std::vector<std::vector<int>> B(20, std::vector<int>(20, 0));
     for(int i=0;i<20;i++){
             B[i][i]=1;
     }
