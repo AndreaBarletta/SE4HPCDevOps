@@ -15,3 +15,7 @@ jobs:
 
     - name: Build
       run: ./build.sh
+
+    - name: Run tests
+      working-directory: ./build
+      run: ./test_multiplication
