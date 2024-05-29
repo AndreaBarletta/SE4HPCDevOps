@@ -79,7 +79,7 @@ TEST(MatrixMultiplicationTest, TestMultiplyIdentity)
     std::vector<std::vector<int>> C(3, std::vector<int>(3, 0));
     multiplyMatrices(A, B, C, 3, 3, 3);
 
-    ASSERT_EQ(C, B) << "Matrix multiplication test failed! :(((()";
+    EXPECT_EQ(C, B) << "Matrix multiplication test failed! :(((()";
 
     multiplyMatrices(B, A, C, 3, 3, 3);
     ASSERT_EQ(C, B) << "Matrix multiplication test failed! :(((()";
@@ -104,7 +104,7 @@ TEST(MatrixMultiplicationTest, TestMultiplyZero)
     std::vector<std::vector<int>> C(3, std::vector<int>(3, 0));
     multiplyMatrices(A, B, C, 3, 3, 3);
 
-    ASSERT_EQ(C, B) << "Matrix multiplication test failed! :(((()";
+    EXPECT_EQ(C, B) << "Matrix multiplication test failed! :(((()";
 
     multiplyMatrices(B, A, C, 3, 3, 3);
     ASSERT_EQ(C, B) << "Matrix multiplication test failed! :(((()";
@@ -132,7 +132,7 @@ TEST(MatrixMultiplicationTest, TestMultiplyBig)
 
     std::vector<std::vector<int>> C(20, std::vector<int>(20, 0));
     multiplyMatrices(A, B, C, 20, 20, 20);
-    ASSERT_EQ(C, A) << "Matrix multiplication test failed! :(((()";
+    EXPECT_EQ(C, A) << "Matrix multiplication test failed! :(((()";
 
     multiplyMatrices(B, A, C, 20, 20, 20);
     ASSERT_EQ(C, A) << "Matrix multiplication test failed! :(((()";
@@ -154,7 +154,7 @@ TEST(MatrixMultiplicationTest, TestMultiplyNegative)
     std::vector<std::vector<int>> expected = {
         {-3, -3}, {7, 7}};
     multiplyMatrices(A, B, C, 2, 2, 2);
-    ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
+    EXPECT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
 
     expected = {
         {2, 2}, {2, 2}};
