@@ -104,10 +104,10 @@ TEST(MatrixMultiplicationTest, TestMultiplyZero)
     std::vector<std::vector<int>> C(3, std::vector<int>(3, 0));
     multiplyMatrices(A, B, C, 3, 3, 3);
 
-    EXPECT_EQ(C, B) << "Matrix multiplication test failed! :(((()";
+    EXPECT_EQ(C, A) << "Matrix multiplication test failed! :(((()";
 
     multiplyMatrices(B, A, C, 3, 3, 3);
-    ASSERT_EQ(C, B) << "Matrix multiplication test failed! :(((()";
+    ASSERT_EQ(C, A) << "Matrix multiplication test failed! :(((()";
 }
 
 /*
