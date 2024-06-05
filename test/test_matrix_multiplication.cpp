@@ -4,7 +4,8 @@
 #include <gtest/gtest.h>
 
 /*
-    1x1 matrix times 1x1 matrix. This tests the element-wise product
+    Test multiplying two 1x1 matrices. 
+    This checks the basic element-wise multiplication.
  */
 TEST(MatrixMultiplicationTest, TestMultiplyScalars)
 {
@@ -23,7 +24,8 @@ TEST(MatrixMultiplicationTest, TestMultiplyScalars)
 }
 
 /*
-    1x1 matrix times 1x1 matrix with big values. This tests the element-wise product and overflow
+    Test multiplying two 1x1 matrices with large values.
+    This checks for potential overflow issues.
  */
 TEST(MatrixMultiplicationTest, TestMultiplyBigScalars)
 {
@@ -42,8 +44,9 @@ TEST(MatrixMultiplicationTest, TestMultiplyBigScalars)
 }
 
 /*
-    1x10 matrix times 10x1 matrix. This tests the sum of the products
-*/
+    Test multiplying a 1x10 matrix with a 10x1 matrix.
+    This checks the sum of the product of elements.
+ */
 TEST(MatrixMultiplicationTest, TestSumColRow)
 {
 
@@ -61,8 +64,9 @@ TEST(MatrixMultiplicationTest, TestSumColRow)
 }
 
 /*
-    Left and right product by the identity matrix. This tests correct indexing of the loops
-*/
+    Test multiplying with the identity matrix.
+    This ensures that the original matrix remains unchanged.
+ */
 TEST(MatrixMultiplicationTest, TestMultiplyIdentity)
 {
 
@@ -86,8 +90,9 @@ TEST(MatrixMultiplicationTest, TestMultiplyIdentity)
 }
 
 /*
-    Left and right product by the zero matrix. This tests products by zero
-*/
+    Test multiplying with a zero matrix.
+    This ensures that the result is a zero matrix.
+ */
 TEST(MatrixMultiplicationTest, TestMultiplyZero)
 {
 
@@ -111,8 +116,9 @@ TEST(MatrixMultiplicationTest, TestMultiplyZero)
 }
 
 /*
-    20x20 matrix multiplication to test big inputs
-*/
+    Test multiplying two 20x20 matrices.
+    This checks the correctness of the algorithm with larger matrices.
+ */
 TEST(MatrixMultiplicationTest, TestMultiplyBig)
 {
 
@@ -139,8 +145,9 @@ TEST(MatrixMultiplicationTest, TestMultiplyBig)
 }
 
 /*
-    Test negative entries for the matrices, possible sign errors
-*/
+    Test multiplying matrices with negative entries.
+    This checks for correct handling of negative numbers.
+ */
 TEST(MatrixMultiplicationTest, TestMultiplyNegative)
 {
     std::vector<std::vector<int>> A = {
